@@ -11,10 +11,11 @@ namespace Motosalon
         private WorkingWithFiles<Dictionary<string, List<string>>> FileBrandModel;
         private WorkingWithFiles<List<string>> FileType;
         private List<Mototransport> mototransports;
-        private Dictionary<string, List<string>> brandModelMotorcycle;
-        private Dictionary<string, List<string>> brandModelScooter;
-        private List<string> typeMotorcycle;
-        private List<string> typeScooter;
+        private Dictionary<string, List<string>> BrandModelMotorcycle;
+        private Dictionary<string, List<string>> BrandModelScooter;
+        private List<string> TypeMotorcycle;
+        private List<string> TypeScooter;
+
         public AdminMotoListForm()
         {
             InitializeComponent();
@@ -22,6 +23,7 @@ namespace Motosalon
             FileBrandModel = new WorkingWithFiles<Dictionary<string, List<string>>>();
             FileType = new WorkingWithFiles<List<string>>();
         }
+
         public AdminMotoListForm(ref List<Mototransport> mototransports)
         {
             InitializeComponent();
@@ -68,19 +70,20 @@ namespace Motosalon
             AddButton.Visible = false;
 
 
-            brandModelMotorcycle = FileBrandModel.ReadingFromFile("brandModelMotorcycle.bin");
-            brandModelScooter = FileBrandModel.ReadingFromFile("brandModelScooter.bin");
-            typeMotorcycle = FileType.ReadingFromFile("Typemotorcycle.bin");
-            typeScooter = FileType.ReadingFromFile("TypeScooter.bin");
+            BrandModelMotorcycle = FileBrandModel.ReadingFromFile("BrandModelMotorcycle.bin");
+            BrandModelScooter = FileBrandModel.ReadingFromFile("BrandModelScooter.bin");
+            TypeMotorcycle = FileType.ReadingFromFile("Typemotorcycle.bin");
+            TypeScooter = FileType.ReadingFromFile("TypeScooter.bin");
 
-            if (brandModelMotorcycle == null || brandModelScooter == null || typeMotorcycle == null || typeScooter == null)
+            if (BrandModelMotorcycle == null || BrandModelScooter == null || TypeMotorcycle == null || TypeScooter == null)
             {
                 MessageBox.Show("Не вдалося зчитати файл");
                 return;
             }
-            /*mototransports = fileMoto.ReadingFromFile("MotoTransport.bin");*/
+            /*Mototransports = FileMoto.ReadingFromFile("MotoTransport.bin");*/
             AddMotoToListView(mototransports, ChangeBackGroundColor, ChangeForeColor);
         }
+
         private void AddMotoToListView(List<Mototransport> mototransports, ChangeStyle changeStyleMotoLines, ChangeStyle changeStyleScooterLines)
         {
             MotoListView.Items.Clear();
@@ -99,10 +102,12 @@ namespace Motosalon
                 MotoListView.Items.Add(item);
             }
         }
+
         private void ChangeBackGroundColor(ListViewItem item, Color color)
         {
             item.SubItems[0].BackColor = color;
         }
+
         private void ChangeForeColor(ListViewItem item, Color color)
         {
             item.SubItems[0].ForeColor = color;
@@ -203,28 +208,28 @@ namespace Motosalon
             ExtraComboBox.Items.Clear();
             if (TypeComboBox.Text == "Мотоцикл")
             {
-                foreach (var brand in brandModelMotorcycle)
+                foreach (var brand in BrandModelMotorcycle)
                 {
                     BrandComboBox.Items.Add(brand.Key);
                 }
                 ExtraFieldLabel.Visible = true;
                 ExtraFieldLabel.Text = "Тип мотоцикла: ";
                 ExtraComboBox.Visible = true;
-                foreach (var type in typeMotorcycle)
+                foreach (var type in TypeMotorcycle)
                 {
                     ExtraComboBox.Items.Add(type);
                 }
             }
             else
             {
-                foreach (var brand in brandModelScooter)
+                foreach (var brand in BrandModelScooter)
                 {
                     BrandComboBox.Items.Add(brand.Key);
                 }
                 ExtraFieldLabel.Visible = true;
                 ExtraFieldLabel.Text = "Тип скутера: ";
                 ExtraComboBox.Visible = true;
-                foreach (var type in typeScooter)
+                foreach (var type in TypeScooter)
                 {
                     ExtraComboBox.Items.Add(type);
                 }
@@ -238,7 +243,7 @@ namespace Motosalon
             ModelComboBox.Items.Clear();
             if (TypeComboBox.Text == "Мотоцикл")
             {
-                foreach (var brand in brandModelMotorcycle)
+                foreach (var brand in BrandModelMotorcycle)
                 {
                     if (BrandComboBox.Text == brand.Key)
                     {
@@ -252,7 +257,7 @@ namespace Motosalon
             }
             else
             {
-                foreach (var brand in brandModelScooter)
+                foreach (var brand in BrandModelScooter)
                 {
                     if (BrandComboBox.Text == brand.Key)
                     {

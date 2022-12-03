@@ -29,15 +29,15 @@ namespace Motosalon
         /// </summary>
         private void InitializeComponent()
         {
+            this.PhoneTextBox = new System.Windows.Forms.MaskedTextBox();
             this.SurnameTextBox = new System.Windows.Forms.TextBox();
             this.NameTextBox = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.PhoneTextBox = new System.Windows.Forms.MaskedTextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.CommentTextBox = new System.Windows.Forms.TextBox();
             this.BuyButton = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.AmountSymbolLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -157,19 +157,19 @@ namespace Motosalon
             this.Load += new System.EventHandler(this.ClientInfoEntryForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion
+
+        private System.Windows.Forms.MaskedTextBox PhoneTextBox;
         private System.Windows.Forms.TextBox SurnameTextBox;
         private System.Windows.Forms.TextBox NameTextBox;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.MaskedTextBox PhoneTextBox;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox CommentTextBox;
         private System.Windows.Forms.Button BuyButton;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label AmountSymbolLabel;
     }
 }

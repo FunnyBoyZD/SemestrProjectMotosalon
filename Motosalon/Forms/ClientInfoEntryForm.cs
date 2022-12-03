@@ -12,11 +12,12 @@ namespace Motosalon
 {
     public partial class ClientInfoEntryForm : Form
     {
-        private Mototransport mototransport;
+        private Mototransport Mototransport;
+
         public ClientInfoEntryForm(Mototransport mototransport)
         {
             InitializeComponent();
-            this.mototransport = mototransport;
+            this.Mototransport = mototransport;
         }
 
         private void BuyButton_Click(object sender, EventArgs e)
@@ -34,7 +35,7 @@ namespace Motosalon
             }*/
             try
             {
-                client = new Client(NameTextBox.Text, SurnameTextBox.Text, PhoneTextBox.Text, CommentTextBox.Text, mototransport);
+                client = new Client(NameTextBox.Text, SurnameTextBox.Text, PhoneTextBox.Text, CommentTextBox.Text, Mototransport);
             }
             catch (PhoneException ex)
             {

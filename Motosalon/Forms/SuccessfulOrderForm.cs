@@ -7,21 +7,21 @@ namespace Motosalon
 {
     public partial class SuccessfulOrderForm : Form
     {
-        private Client client;
-        private WorkingWithFiles<List<Client>> workingWithFiles;
+        private Client Client;
+        private WorkingWithFiles<List<Client>> WorkingWithFiles;
 
         public SuccessfulOrderForm(Client client)
         {
             InitializeComponent();
-            this.client = client;
-            workingWithFiles = new WorkingWithFiles<List<Client>>();
+            this.Client = client;
+            WorkingWithFiles = new WorkingWithFiles<List<Client>>();
         }
 
         private void SuccessfulOrderForm_Load(object sender, EventArgs e)
         {
-            ClientName.Text += client.Name;
-            ClientSurname.Text += client.Surname;
-            ClientPhone.Text += client.PhoneNumber;
+            ClientName.Text += Client.Name;
+            ClientSurname.Text += Client.Surname;
+            ClientPhone.Text += Client.PhoneNumber;
             BackColor = Color.LightGray;
         }
 
@@ -29,14 +29,14 @@ namespace Motosalon
         {
             List<Client> clients = new List<Client>();
 
-            clients = workingWithFiles.ReadingFromFile("Clients.bin");
+            clients = WorkingWithFiles.ReadingFromFile("Clients.bin");
             if (clients == null)
             {
                 MessageBox.Show("Не вдалося прочитати файл");
                 return;
             }
-            clients.Add(client);
-            workingWithFiles.WritingToFile(clients, "Clients.bin");
+            clients.Add(Client);
+            WorkingWithFiles.WritingToFile(clients, "Clients.bin");
             this.Close();
         }
     }

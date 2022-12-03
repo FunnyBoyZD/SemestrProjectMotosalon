@@ -8,12 +8,12 @@ namespace Motosalon
     delegate void ChangeStyle(ListViewItem item, Color color);
     public partial class MainForm : Form
     {
-        private WorkingWithFiles<Dictionary<string, List<string>>> fileBrands = new WorkingWithFiles<Dictionary<string, List<string>>>();
-        private WorkingWithFiles<List<Mototransport>> fileMoto = new WorkingWithFiles<List<Mototransport>>();
-        private Dictionary<string, List<string>> brandModelMotorcycle;
-        private Dictionary<string, List<string>> brandModelScooter;
-        private List<Mototransport> mototransports;
-        private List<Mototransport> filtredMoto = new List<Mototransport>();
+        private WorkingWithFiles<Dictionary<string, List<string>>> FileBrands = new WorkingWithFiles<Dictionary<string, List<string>>>();
+        private WorkingWithFiles<List<Mototransport>> FileMoto = new WorkingWithFiles<List<Mototransport>>();
+        private Dictionary<string, List<string>> BrandModelMotorcycle;
+        private Dictionary<string, List<string>> BrandModelScooter;
+        private List<Mototransport> Mototransports;
+        private List<Mototransport> FiltredMoto = new List<Mototransport>();
 
         public MainForm()
         {
@@ -29,33 +29,33 @@ namespace Motosalon
             panel2.BackColor = Color.LightBlue;
             panel2.Visible = false;
 
-            brandModelMotorcycle = fileBrands.ReadingFromFile("brandModelMotorcycle.bin");
-            if (brandModelMotorcycle == null)
+            BrandModelMotorcycle = FileBrands.ReadingFromFile("BrandModelMotorcycle.bin");
+            if (BrandModelMotorcycle == null)
             {
                 MessageBox.Show("Не вдалося прочитати файл");
                 return;
             }
 
-            brandModelScooter = fileBrands.ReadingFromFile("brandModelScooter.bin");
-            if (brandModelScooter == null)
+            BrandModelScooter = FileBrands.ReadingFromFile("BrandModelScooter.bin");
+            if (BrandModelScooter == null)
             {
                 MessageBox.Show("Не вдалося прочитати файл");
                 return;
             }
 
-            mototransports = fileMoto.ReadingFromFile("MotoTransport.bin");
-            if (mototransports == null)
+            Mototransports = FileMoto.ReadingFromFile("MotoTransport.bin");
+            if (Mototransports == null)
             {
                 MessageBox.Show("Не вдалося прочитати файл");
                 return;
             }
 
-            foreach (var moto in mototransports)
+            foreach (var moto in Mototransports)
             {
-                filtredMoto.Add(moto);
+                FiltredMoto.Add(moto);
             }
 
-            AddMotoToListView(filtredMoto, ChangeBackGroundColor, ChangeForeColor);
+            AddMotoToListView(FiltredMoto, ChangeBackGroundColor, ChangeForeColor);
         }
 
         private void AddMotoToListView(List<Mototransport> mototransports, ChangeStyle changeStyleMotoLines, ChangeStyle changeStyleScooterLines)
@@ -67,7 +67,7 @@ namespace Motosalon
                 item = new ListViewItem(new string[] { mototransport.GetType().Name == "Motorcycle" ? "Мотоцикл" : "Скутер", mototransport.Brand, mototransport.Model, mototransport.Price.ToString(), mototransport.Volume.ToString() });
                 if (mototransport.GetType().Name == "Motorcycle")
                 {
-                    changeStyleMotoLines(item,Color.LightGray);
+                    changeStyleMotoLines(item, Color.LightGray);
                 }
                 else
                 {
@@ -95,14 +95,14 @@ namespace Motosalon
             ModelComboBox.Items.Clear();
             if (TypeComboBox.Text == "Мотоцикл")
             {
-                foreach (var brand in brandModelMotorcycle)
+                foreach (var brand in BrandModelMotorcycle)
                 {
                     BrandComboBox.Items.Add(brand.Key);
                 }
             }
             else
             {
-                foreach (var brand in brandModelScooter)
+                foreach (var brand in BrandModelScooter)
                 {
                     BrandComboBox.Items.Add(brand.Key);
                 }
@@ -115,7 +115,7 @@ namespace Motosalon
             ModelComboBox.Items.Clear();
             if (TypeComboBox.Text == "Мотоцикл")
             {
-                foreach (var brand in brandModelMotorcycle)
+                foreach (var brand in BrandModelMotorcycle)
                 {
                     if (BrandComboBox.Text == brand.Key)
                     {
@@ -129,7 +129,7 @@ namespace Motosalon
             }
             else
             {
-                foreach (var brand in brandModelScooter)
+                foreach (var brand in BrandModelScooter)
                 {
                     if (BrandComboBox.Text == brand.Key)
                     {
@@ -210,7 +210,7 @@ namespace Motosalon
                     MessageBox.Show($"Помилка: {ex.Message}\tЗначення: {ex.Value}");
                     return;
                 }
-                filtredMoto = FiltringList(motorcycleFrom, motorcycleTo);
+                FiltredMoto = FiltringList(motorcycleFrom, motorcycleTo);
             }
             else if (TypeComboBox.Text == "Скутер")
             {
@@ -231,7 +231,7 @@ namespace Motosalon
                     MessageBox.Show($"Помилка: {ex.Message}\tЗначення: {ex.Value}");
                     return;
                 }
-                filtredMoto = FiltringList(scooterFrom, scooterTo);
+                FiltredMoto = FiltringList(scooterFrom, scooterTo);
             }
             else
             {
@@ -252,10 +252,10 @@ namespace Motosalon
                     MessageBox.Show($"Помилка: {ex.Message}\tЗначення: {ex.Value}");
                     return;
                 }
-                filtredMoto = FiltringList(mototransportFrom, mototransportTo);
+                FiltredMoto = FiltringList(mototransportFrom, mototransportTo);
             }
             MotoListView.Items.Clear();
-            AddMotoToListView(filtredMoto, ChangeBackGroundColor, ChangeForeColor);
+            AddMotoToListView(FiltredMoto, ChangeBackGroundColor, ChangeForeColor);
 
         }
 
@@ -263,24 +263,24 @@ namespace Motosalon
         {
             List<Mototransport> filtredMoto = new List<Mototransport>();
 
-            foreach (var mototransport in mototransports)
+            foreach (var mototransport in Mototransports)
             {
                 if (mototransport.Filter(mototransportFrom, mototransportTo) == true)
                 {
                     filtredMoto.Add(mototransport);
                 }
-            }             
+            }
             return filtredMoto;
         }
 
         private void SortButton_Click(object sender, EventArgs e)
         {
-            if (filtredMoto.Count == 0)
+            if (FiltredMoto.Count == 0)
                 return;
 
-            filtredMoto.Sort();
+            FiltredMoto.Sort();
             MotoListView.Items.Clear();
-            AddMotoToListView(filtredMoto, ChangeBackGroundColor, ChangeForeColor);
+            AddMotoToListView(FiltredMoto, ChangeBackGroundColor, ChangeForeColor);
         }
 
         private void SelectButton_Click(object sender, EventArgs e)
@@ -289,7 +289,7 @@ namespace Motosalon
             if (MotoListView.SelectedItems.Count == 1)
             {
                 DialogResult result = default(DialogResult);
-                mototransport = filtredMoto[MotoListView.SelectedItems[0].Index];
+                mototransport = FiltredMoto[MotoListView.SelectedItems[0].Index];
                 //new confirmation form
                 if (mototransport.GetType().Name == "Motorcycle")
                 {
@@ -350,14 +350,14 @@ namespace Motosalon
 
         private void MotoListButton_Click(object sender, EventArgs e)
         {
-            AdminMotoListForm form = new AdminMotoListForm(ref mototransports);
+            AdminMotoListForm form = new AdminMotoListForm(ref Mototransports);
             form.ShowDialog();
-            AddMotoToListView(mototransports, ChangeBackGroundColor, ChangeForeColor);
+            AddMotoToListView(Mototransports, ChangeBackGroundColor, ChangeForeColor);
             ClearFilterButton.PerformClick();
-            filtredMoto.Clear();
-            for (int i = 0; i < mototransports.Count; i++)
+            FiltredMoto.Clear();
+            for (int i = 0; i < Mototransports.Count; i++)
             {
-                filtredMoto.Add(mototransports[i]);
+                FiltredMoto.Add(Mototransports[i]);
             }
         }
 

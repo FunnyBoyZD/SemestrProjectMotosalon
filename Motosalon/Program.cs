@@ -33,27 +33,27 @@ namespace Motosalon
             {
                 formatter.Serialize(fs, TypeScooterList);
             }*/
-            /*Dictionary<string, List<string>> brandModelMotorcycle = new Dictionary<string, List<string>>();
-            brandModelMotorcycle.Add("BMW", new List<string>() { "K1600GTL", "S1000RR", "G650GS Sertao" });
-            brandModelMotorcycle.Add("Ducati", new List<string>() { "SuperSport", "Multistrada", "1299 Panigale" });
-            brandModelMotorcycle.Add("Honda", new List<string>() { "CBR600RR", "GL1800", "CRF450X" });
-            brandModelMotorcycle.Add("Kawasaki", new List<string>() { "ZX-10RR", "1400GTR", "KLX125" });
-            brandModelMotorcycle.Add("Suzuki", new List<string>() { "GSX-R1000", "V-Strom", "Hayabusa" });
-            brandModelMotorcycle.Add("Yamaha", new List<string>() { "YZF-R6", "XT1200ZE", "WR250R" });*/
-            /*Dictionary<string, List<string>> brandModelScooter = new Dictionary<string, List<string>>();
-            brandModelScooter.Add("VIPER", new List<string>() { "ACTIVE 125", "VP150F" });
-            brandModelScooter.Add("LIFAN", new List<string>() { "KPV 150 ADV " });
-            brandModelScooter.Add("FORTE", new List<string>() { "NEW JOG", "CANOE" });
-            brandModelScooter.Add("SPARK", new List<string>() { "SP110С-3С", "SP80S-16" });
-            brandModelScooter.Add("MUSSTANG", new List<string>() { "MT125-3", "MT110-3" });
+            /*Dictionary<string, List<string>> BrandModelMotorcycle = new Dictionary<string, List<string>>();
+            BrandModelMotorcycle.Add("BMW", new List<string>() { "K1600GTL", "S1000RR", "G650GS Sertao" });
+            BrandModelMotorcycle.Add("Ducati", new List<string>() { "SuperSport", "Multistrada", "1299 Panigale" });
+            BrandModelMotorcycle.Add("Honda", new List<string>() { "CBR600RR", "GL1800", "CRF450X" });
+            BrandModelMotorcycle.Add("Kawasaki", new List<string>() { "ZX-10RR", "1400GTR", "KLX125" });
+            BrandModelMotorcycle.Add("Suzuki", new List<string>() { "GSX-R1000", "V-Strom", "Hayabusa" });
+            BrandModelMotorcycle.Add("Yamaha", new List<string>() { "YZF-R6", "XT1200ZE", "WR250R" });*/
+            /*Dictionary<string, List<string>> BrandModelScooter = new Dictionary<string, List<string>>();
+            BrandModelScooter.Add("VIPER", new List<string>() { "ACTIVE 125", "VP150F" });
+            BrandModelScooter.Add("LIFAN", new List<string>() { "KPV 150 ADV " });
+            BrandModelScooter.Add("FORTE", new List<string>() { "NEW JOG", "CANOE" });
+            BrandModelScooter.Add("SPARK", new List<string>() { "SP110С-3С", "SP80S-16" });
+            BrandModelScooter.Add("MUSSTANG", new List<string>() { "MT125-3", "MT110-3" });
             BinaryFormatter formatter = new BinaryFormatter();
-            using (FileStream fs = new FileStream("brandModelScooter.bin", FileMode.OpenOrCreate))
+            using (FileStream fs = new FileStream("BrandModelScooter.bin", FileMode.OpenOrCreate))
             {
-                formatter.Serialize(fs, brandModelScooter);
+                formatter.Serialize(fs, BrandModelScooter);
             }*/
 
 
-            /*List<Mototransport> mototransports = new List<Mototransport>()
+            /*List<Mototransport> Mototransports = new List<Mototransport>()
              {
                  new Motorcycle("BMW", "K1600GTL", 24000, 1649, "Туристичний"),
                  new Motorcycle("BMW", "S1000RR", 17000, 999, "Спортивний"),
@@ -87,7 +87,7 @@ namespace Motosalon
             BinaryFormatter formatter = new BinaryFormatter();
             using (FileStream fs = new FileStream("MotoTransport.bin", FileMode.OpenOrCreate))
             {
-                formatter.Serialize(fs, mototransports);
+                formatter.Serialize(fs, Mototransports);
             }*/
 
 

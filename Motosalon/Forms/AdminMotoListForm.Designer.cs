@@ -29,29 +29,29 @@ namespace Motosalon
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.MotoListView = new System.Windows.Forms.ListView();
             this.Type = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Brand = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Model = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Price = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Volume = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.MotoListView = new System.Windows.Forms.ListView();
+            this.TypeComboBox = new System.Windows.Forms.ComboBox();
+            this.BrandComboBox = new System.Windows.Forms.ComboBox();
+            this.ExtraComboBox = new System.Windows.Forms.ComboBox();
+            this.ModelComboBox = new System.Windows.Forms.ComboBox();
+            this.VolumeTextBox = new System.Windows.Forms.TextBox();
+            this.PriceTextBox = new System.Windows.Forms.TextBox();
             this.ShowMotoButton = new System.Windows.Forms.Button();
             this.ShowAddPanelButton = new System.Windows.Forms.Button();
+            this.AddButton = new System.Windows.Forms.Button();
+            this.DeleteMotoButton = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.TypeLabel = new System.Windows.Forms.Label();
             this.BrandLabel = new System.Windows.Forms.Label();
             this.VolumeLabel = new System.Windows.Forms.Label();
             this.PriceLabel = new System.Windows.Forms.Label();
             this.ExtraFieldLabel = new System.Windows.Forms.Label();
-            this.TypeComboBox = new System.Windows.Forms.ComboBox();
-            this.BrandComboBox = new System.Windows.Forms.ComboBox();
-            this.ExtraComboBox = new System.Windows.Forms.ComboBox();
-            this.VolumeTextBox = new System.Windows.Forms.TextBox();
-            this.PriceTextBox = new System.Windows.Forms.TextBox();
-            this.AddButton = new System.Windows.Forms.Button();
             this.ModelLabel = new System.Windows.Forms.Label();
-            this.ModelComboBox = new System.Windows.Forms.ComboBox();
-            this.DeleteMotoButton = new System.Windows.Forms.Button();
             this.AmountMotoLabel = new System.Windows.Forms.Label();
             this.SumLabel = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
@@ -319,34 +319,33 @@ namespace Motosalon
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
-
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.ListView MotoListView;
         private System.Windows.Forms.ColumnHeader Type;
         private System.Windows.Forms.ColumnHeader Brand;
         private System.Windows.Forms.ColumnHeader Model;
         private System.Windows.Forms.ColumnHeader Price;
         private System.Windows.Forms.ColumnHeader Volume;
+        private System.Windows.Forms.ListView MotoListView;
         private System.Windows.Forms.ComboBox BrandComboBox;
         private System.Windows.Forms.ComboBox TypeComboBox;
+        private System.Windows.Forms.ComboBox ExtraComboBox;
+        private System.Windows.Forms.ComboBox ModelComboBox;
+        private System.Windows.Forms.TextBox PriceTextBox;
+        private System.Windows.Forms.TextBox VolumeTextBox;
+        private System.Windows.Forms.Button ShowAddPanelButton;
+        private System.Windows.Forms.Button ShowMotoButton;
+        private System.Windows.Forms.Button AddButton;
+        private System.Windows.Forms.Button DeleteMotoButton;
+        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label ExtraFieldLabel;
         private System.Windows.Forms.Label PriceLabel;
         private System.Windows.Forms.Label VolumeLabel;
         private System.Windows.Forms.Label BrandLabel;
         private System.Windows.Forms.Label TypeLabel;
-        private System.Windows.Forms.Button ShowAddPanelButton;
-        private System.Windows.Forms.Button ShowMotoButton;
-        private System.Windows.Forms.Button AddButton;
-        private System.Windows.Forms.TextBox PriceTextBox;
-        private System.Windows.Forms.TextBox VolumeTextBox;
-        private System.Windows.Forms.ComboBox ExtraComboBox;
-        private System.Windows.Forms.ComboBox ModelComboBox;
         private System.Windows.Forms.Label ModelLabel;
-        private System.Windows.Forms.Button DeleteMotoButton;
         private System.Windows.Forms.Label SumLabel;
         private System.Windows.Forms.Label AmountMotoLabel;
     }

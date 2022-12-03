@@ -7,24 +7,25 @@ namespace Motosalon
 {
     public partial class ListClientsForm : Form
     {
-        private WorkingWithFiles<List<Client>> workingWithFiles;
-        private List<Client> clients = null;
+        private WorkingWithFiles<List<Client>> WorkingWithFiles;
+        private List<Client> Clients = null;
+
         public ListClientsForm()
         {
             InitializeComponent();
-            workingWithFiles = new WorkingWithFiles<List<Client>>();
+            WorkingWithFiles = new WorkingWithFiles<List<Client>>();
         }
 
         private void ListClientsForm_Load(object sender, EventArgs e)
         {
             this.BackColor = Color.LightGray;
-            clients = workingWithFiles.ReadingFromFile("Clients.bin");
-            if (clients == null)
+            Clients = WorkingWithFiles.ReadingFromFile("Clients.bin");
+            if (Clients == null)
             {
                 MessageBox.Show("Не вдалося зчитати файл");
                 return;
             }
-            AddToListView(clients, ChangeBackGroundColor);
+            AddToListView(Clients, ChangeBackGroundColor);
         }
 
         private void ChangeBackGroundColor(ListViewItem item, Color color)
@@ -63,9 +64,9 @@ namespace Motosalon
         {
             if (ClientListView.SelectedItems.Count == 1)
             {
-                if (clients[ClientListView.SelectedItems[0].Index].Comment != "")
+                if (Clients[ClientListView.SelectedItems[0].Index].Comment != "")
                 {
-                    MessageBox.Show($"{clients[ClientListView.SelectedItems[0].Index].Comment}", "Коментар", MessageBoxButtons.OK);
+                    MessageBox.Show($"{Clients[ClientListView.SelectedItems[0].Index].Comment}", "Коментар", MessageBoxButtons.OK);
                 }
                 else
                 {
@@ -82,7 +83,7 @@ namespace Motosalon
         {
             if (ClientListView.SelectedItems.Count == 1)
             {
-                Mototransport mototransport = clients[ClientListView.SelectedItems[0].Index].BoughtMoto;
+                Mototransport mototransport = Clients[ClientListView.SelectedItems[0].Index].BoughtMoto;
                 if (mototransport.GetType().Name == "Motorcycle")
                 {
                     Motorcycle motorcycle = mototransport as Motorcycle;
@@ -109,9 +110,9 @@ namespace Motosalon
          
             if (ClientListView.SelectedItems.Count == 1)
             {
-                clients.Remove(clients[ClientListView.SelectedItems[0].Index]);
-                AddToListView(clients, ChangeBackGroundColor);
-                workingWithFiles.WritingToFile(clients, "Clients.bin");
+                Clients.Remove(Clients[ClientListView.SelectedItems[0].Index]);
+                AddToListView(Clients, ChangeBackGroundColor);
+                WorkingWithFiles.WritingToFile(Clients, "Clients.bin");
             }
             else
             {
