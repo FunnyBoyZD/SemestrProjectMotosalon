@@ -1,13 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Motosalon
@@ -16,6 +9,7 @@ namespace Motosalon
     {
         private Client client;
         private WorkingWithFiles<List<Client>> workingWithFiles;
+
         public SuccessfulOrderForm(Client client)
         {
             InitializeComponent();

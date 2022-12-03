@@ -136,12 +136,12 @@ namespace Motosalon
 
         #endregion
 
-        private System.Windows.Forms.ListView ClientListView;
         private System.Windows.Forms.ColumnHeader ClientName;
         private System.Windows.Forms.ColumnHeader ClientSurname;
         private System.Windows.Forms.ColumnHeader ClientPhone;
         private System.Windows.Forms.ColumnHeader ClientComment;
         private System.Windows.Forms.ColumnHeader ClientMoto;
+        private System.Windows.Forms.ListView ClientListView; 
         private System.Windows.Forms.Button DeleteButton;
         private System.Windows.Forms.Button ShowMotoButton;
         private System.Windows.Forms.Button ShowCommentButton;
