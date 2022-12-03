@@ -1,0 +1,45 @@
+C:\Users\saliv\source\repos\Motosalon\Motosalon\bin\Debug\Motosalon.exe.config
+C:\Users\saliv\source\repos\Motosalon\Motosalon\bin\Debug\Motosalon.exe
+C:\Users\saliv\source\repos\Motosalon\Motosalon\bin\Debug\Motosalon.pdb
+C:\Users\saliv\source\repos\Motosalon\Motosalon\obj\Debug\Motosalon.csproj.AssemblyReference.cache
+C:\Users\saliv\source\repos\Motosalon\Motosalon\obj\Debug\Motosalon.MainForm.resources
+C:\Users\saliv\source\repos\Motosalon\Motosalon\obj\Debug\Motosalon.Properties.Resources.resources
+C:\Users\saliv\source\repos\Motosalon\Motosalon\obj\Debug\Motosalon.csproj.GenerateResource.cache
+C:\Users\saliv\source\repos\Motosalon\Motosalon\obj\Debug\Motosalon.csproj.CoreCompileInputs.cache
+C:\Users\saliv\source\repos\Motosalon\Motosalon\obj\Debug\Motosalon.exe
+C:\Users\saliv\source\repos\Motosalon\Motosalon\obj\Debug\Motosalon.pdb
+C:\Users\saliv\source\repos\Motosalon\Motosalon\obj\Debug\Motosalon.ClientInfoEntryForm.resources
+C:\Users\saliv\source\repos\Motosalon\Motosalon\obj\Debug\Motosalon.SuccessfulOrderForm.resources
+C:\Users\saliv\source\repos\Motosalon\Motosalon\obj\Debug\Motosalon.ListClientsForm.resources
+C:\Users\saliv\source\repos\Motosalon\Motosalon\obj\Debug\Motosalon.AdminMotoListForm.resources
+C:\Users\saliv\source\repos\Motosalon\Motosalon\obj\Debug\Motosalon.csproj.SuggestedBindingRedirects.cache
+C:\Users\Oleksii\OneDrive\Рабочий стол\Motosalon\Motosalon\bin\Debug\Motosalon.exe.config
+C:\Users\Oleksii\OneDrive\Рабочий стол\Motosalon\Motosalon\bin\Debug\Motosalon.exe
+C:\Users\Oleksii\OneDrive\Рабочий стол\Motosalon\Motosalon\bin\Debug\Motosalon.pdb
+C:\Users\Oleksii\OneDrive\Рабочий стол\Motosalon\Motosalon\obj\Debug\Motosalon.csproj.AssemblyReference.cache
+C:\Users\Oleksii\OneDrive\Рабочий стол\Motosalon\Motosalon\obj\Debug\Motosalon.csproj.SuggestedBindingRedirects.cache
+C:\Users\Oleksii\OneDrive\Рабочий стол\Motosalon\Motosalon\obj\Debug\Motosalon.AdminMotoListForm.resources
+C:\Users\Oleksii\OneDrive\Рабочий стол\Motosalon\Motosalon\obj\Debug\Motosalon.ClientInfoEntryForm.resources
+C:\Users\Oleksii\OneDrive\Рабочий стол\Motosalon\Motosalon\obj\Debug\Motosalon.ListClientsForm.resources
+C:\Users\Oleksii\OneDrive\Рабочий стол\Motosalon\Motosalon\obj\Debug\Motosalon.MainForm.resources
+C:\Users\Oleksii\OneDrive\Рабочий стол\Motosalon\Motosalon\obj\Debug\Motosalon.Properties.Resources.resources
+C:\Users\Oleksii\OneDrive\Рабочий стол\Motosalon\Motosalon\obj\Debug\Motosalon.SuccessfulOrderForm.resources
+C:\Users\Oleksii\OneDrive\Рабочий стол\Motosalon\Motosalon\obj\Debug\Motosalon.csproj.GenerateResource.cache
+C:\Users\Oleksii\OneDrive\Рабочий стол\Motosalon\Motosalon\obj\Debug\Motosalon.csproj.CoreCompileInputs.cache
+C:\Users\Oleksii\OneDrive\Рабочий стол\Motosalon\Motosalon\obj\Debug\Motosalon.exe
+C:\Users\Oleksii\OneDrive\Рабочий стол\Motosalon\Motosalon\obj\Debug\Motosalon.pdb
+C:\Users\Oleksii\OneDrive\Рабочий стол\Motosalon\SemestrProjectMotosalon\Motosalon\bin\Debug\Motosalon.exe.config
+C:\Users\Oleksii\OneDrive\Рабочий стол\Motosalon\SemestrProjectMotosalon\Motosalon\bin\Debug\Motosalon.exe
+C:\Users\Oleksii\OneDrive\Рабочий стол\Motosalon\SemestrProjectMotosalon\Motosalon\bin\Debug\Motosalon.pdb
+C:\Users\Oleksii\OneDrive\Рабочий стол\Motosalon\SemestrProjectMotosalon\Motosalon\obj\Debug\Motosalon.csproj.AssemblyReference.cache
+C:\Users\Oleksii\OneDrive\Рабочий стол\Motosalon\SemestrProjectMotosalon\Motosalon\obj\Debug\Motosalon.csproj.SuggestedBindingRedirects.cache
+C:\Users\Oleksii\OneDrive\Рабочий стол\Motosalon\SemestrProjectMotosalon\Motosalon\obj\Debug\Motosalon.AdminMotoListForm.resources
+C:\Users\Oleksii\OneDrive\Рабочий стол\Motosalon\SemestrProjectMotosalon\Motosalon\obj\Debug\Motosalon.ClientInfoEntryForm.resources
+C:\Users\Oleksii\OneDrive\Рабочий стол\Motosalon\SemestrProjectMotosalon\Motosalon\obj\Debug\Motosalon.ListClientsForm.resources
+C:\Users\Oleksii\OneDrive\Рабочий стол\Motosalon\SemestrProjectMotosalon\Motosalon\obj\Debug\Motosalon.MainForm.resources
+C:\Users\Oleksii\OneDrive\Рабочий стол\Motosalon\SemestrProjectMotosalon\Motosalon\obj\Debug\Motosalon.Properties.Resources.resources
+C:\Users\Oleksii\OneDrive\Рабочий стол\Motosalon\SemestrProjectMotosalon\Motosalon\obj\Debug\Motosalon.SuccessfulOrderForm.resources
+C:\Users\Oleksii\OneDrive\Рабочий стол\Motosalon\SemestrProjectMotosalon\Motosalon\obj\Debug\Motosalon.csproj.GenerateResource.cache
+C:\Users\Oleksii\OneDrive\Рабочий стол\Motosalon\SemestrProjectMotosalon\Motosalon\obj\Debug\Motosalon.csproj.CoreCompileInputs.cache
+C:\Users\Oleksii\OneDrive\Рабочий стол\Motosalon\SemestrProjectMotosalon\Motosalon\obj\Debug\Motosalon.exe
+C:\Users\Oleksii\OneDrive\Рабочий стол\Motosalon\SemestrProjectMotosalon\Motosalon\obj\Debug\Motosalon.pdb
