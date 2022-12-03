@@ -4,14 +4,14 @@ namespace Motosalon
     partial class MainForm
     {
         /// <summary>
-        /// Обязательная переменная конструктора.
+        /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        /// Освободить все используемые ресурсы.
+        /// Clean up any resources being used.
         /// </summary>
-        /// <param name="disposing">истинно, если управляемый ресурс должен быть удален; иначе ложно.</param>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -21,41 +21,41 @@ namespace Motosalon
             base.Dispose(disposing);
         }
 
-        #region Код, автоматически созданный конструктором форм Windows
+        #region Windows Form Designer generated code
 
         /// <summary>
-        /// Требуемый метод для поддержки конструктора — не изменяйте 
-        /// содержимое этого метода с помощью редактора кода.
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
-            this.MotoListView = new System.Windows.Forms.ListView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.BrandComboBox = new System.Windows.Forms.ComboBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.ModelComboBox = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.TypeComboBox = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.VolumeFromBox = new System.Windows.Forms.TextBox();
-            this.VolumeToBox = new System.Windows.Forms.TextBox();
-            this.PriceToBox = new System.Windows.Forms.TextBox();
-            this.PriceFromBox = new System.Windows.Forms.TextBox();
-            this.SortButton = new System.Windows.Forms.Button();
-            this.SelectButton = new System.Windows.Forms.Button();
             this.Type = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Brand = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Model = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Price = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Volume = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.MotoListView = new System.Windows.Forms.ListView();
+            this.BrandComboBox = new System.Windows.Forms.ComboBox();
+            this.ModelComboBox = new System.Windows.Forms.ComboBox();
+            this.TypeComboBox = new System.Windows.Forms.ComboBox();
+            this.PriceToBox = new System.Windows.Forms.TextBox();
+            this.PriceFromBox = new System.Windows.Forms.TextBox();
+            this.VolumeToBox = new System.Windows.Forms.TextBox();
+            this.VolumeFromBox = new System.Windows.Forms.TextBox();
+            this.SortButton = new System.Windows.Forms.Button();
+            this.SelectButton = new System.Windows.Forms.Button();
             this.FilterButton = new System.Windows.Forms.Button();
             this.ClearFilterButton = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.MotoListButton = new System.Windows.Forms.Button();
             this.ClientListButton = new System.Windows.Forms.Button();
+            this.MotoListButton = new System.Windows.Forms.Button();
             this.AdminButton = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -346,33 +346,32 @@ namespace Motosalon
 
         #endregion
 
+        private System.Windows.Forms.ColumnHeader Type;
+        private System.Windows.Forms.ColumnHeader Brand;
+        private System.Windows.Forms.ColumnHeader Model;
+        private System.Windows.Forms.ColumnHeader Price;
+        private System.Windows.Forms.ColumnHeader Volume;
         private System.Windows.Forms.ListView MotoListView;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox BrandComboBox;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ComboBox ModelComboBox;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox TypeComboBox;
         private System.Windows.Forms.TextBox PriceToBox;
         private System.Windows.Forms.TextBox PriceFromBox;
         private System.Windows.Forms.TextBox VolumeToBox;
         private System.Windows.Forms.TextBox VolumeFromBox;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox TypeComboBox;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ColumnHeader Type;
-        private System.Windows.Forms.ColumnHeader Brand;
-        private System.Windows.Forms.ColumnHeader Model;
         private System.Windows.Forms.Button SortButton;
         private System.Windows.Forms.Button SelectButton;
-        private System.Windows.Forms.ColumnHeader Price;
-        private System.Windows.Forms.ColumnHeader Volume;
         private System.Windows.Forms.Button FilterButton;
         private System.Windows.Forms.Button ClearFilterButton;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button ClientListButton;
         private System.Windows.Forms.Button MotoListButton;
         private System.Windows.Forms.Button AdminButton;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
     }
 }
-
