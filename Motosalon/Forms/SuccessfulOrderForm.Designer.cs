@@ -29,10 +29,10 @@ namespace Motosalon
         /// </summary>
         private void InitializeComponent()
         {
+            this.OkButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.OKButton = new System.Windows.Forms.Button();
             this.ClientSurname = new System.Windows.Forms.Label();
             this.ClientName = new System.Windows.Forms.Label();
             this.ClientPhone = new System.Windows.Forms.Label();
@@ -68,15 +68,15 @@ namespace Motosalon
             this.label3.TabIndex = 2;
             this.label3.Text = "Будьте на зв\'язку!  ";
             // 
-            // OKButton
+            // OkButton
             // 
-            this.OKButton.Location = new System.Drawing.Point(322, 325);
-            this.OKButton.Name = "OKButton";
-            this.OKButton.Size = new System.Drawing.Size(139, 53);
-            this.OKButton.TabIndex = 3;
-            this.OKButton.Text = "OK";
-            this.OKButton.UseVisualStyleBackColor = true;
-            this.OKButton.Click += new System.EventHandler(this.OKButton_Click);
+            this.OkButton.Location = new System.Drawing.Point(322, 325);
+            this.OkButton.Name = "OkButton";
+            this.OkButton.Size = new System.Drawing.Size(139, 53);
+            this.OkButton.TabIndex = 3;
+            this.OkButton.Text = "OK";
+            this.OkButton.UseVisualStyleBackColor = true;
+            this.OkButton.Click += new System.EventHandler(this.OKButton_Click);
             // 
             // ClientSurname
             // 
@@ -116,7 +116,7 @@ namespace Motosalon
             this.Controls.Add(this.ClientName);
             this.Controls.Add(this.ClientPhone);
             this.Controls.Add(this.ClientSurname);
-            this.Controls.Add(this.OKButton);
+            this.Controls.Add(this.OkButton);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -132,10 +132,10 @@ namespace Motosalon
 
         #endregion
 
+        private System.Windows.Forms.Button OkButton;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button OKButton;
         private System.Windows.Forms.Label ClientSurname;
         private System.Windows.Forms.Label ClientName;
         private System.Windows.Forms.Label ClientPhone;

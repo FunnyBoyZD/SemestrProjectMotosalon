@@ -68,8 +68,8 @@ namespace Motosalon
             AddButton.Visible = false;
 
 
-            brandModelMotorcycle = FileBrandModel.ReadingFromFile("BrandModelMotorcycle.bin");
-            brandModelScooter = FileBrandModel.ReadingFromFile("BrandModelScooter.bin");
+            brandModelMotorcycle = FileBrandModel.ReadingFromFile("brandModelMotorcycle.bin");
+            brandModelScooter = FileBrandModel.ReadingFromFile("brandModelScooter.bin");
             typeMotorcycle = FileType.ReadingFromFile("Typemotorcycle.bin");
             typeScooter = FileType.ReadingFromFile("TypeScooter.bin");
 
@@ -78,7 +78,7 @@ namespace Motosalon
                 MessageBox.Show("Не вдалося зчитати файл");
                 return;
             }
-            /*mototransports = FileMoto.ReadingFromFile("MotoTransport.bin");*/
+            /*mototransports = fileMoto.ReadingFromFile("MotoTransport.bin");*/
             AddMotoToListView(mototransports, ChangeBackGroundColor, ChangeForeColor);
         }
         private void AddMotoToListView(List<Mototransport> mototransports, ChangeStyle changeStyleMotoLines, ChangeStyle changeStyleScooterLines)

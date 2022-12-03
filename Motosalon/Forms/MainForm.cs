@@ -8,10 +8,10 @@ namespace Motosalon
     delegate void ChangeStyle(ListViewItem item, Color color);
     public partial class MainForm : Form
     {
-        private WorkingWithFiles<Dictionary<string, List<string>>> FileBrands = new WorkingWithFiles<Dictionary<string, List<string>>>();
-        private WorkingWithFiles<List<Mototransport>> FileMoto = new WorkingWithFiles<List<Mototransport>>();
-        private Dictionary<string, List<string>> BrandModelMotorcycle;
-        private Dictionary<string, List<string>> BrandModelScooter;
+        private WorkingWithFiles<Dictionary<string, List<string>>> fileBrands = new WorkingWithFiles<Dictionary<string, List<string>>>();
+        private WorkingWithFiles<List<Mototransport>> fileMoto = new WorkingWithFiles<List<Mototransport>>();
+        private Dictionary<string, List<string>> brandModelMotorcycle;
+        private Dictionary<string, List<string>> brandModelScooter;
         private List<Mototransport> mototransports;
         private List<Mototransport> filtredMoto = new List<Mototransport>();
 
@@ -29,21 +29,21 @@ namespace Motosalon
             panel2.BackColor = Color.LightBlue;
             panel2.Visible = false;
 
-            BrandModelMotorcycle = FileBrands.ReadingFromFile("BrandModelMotorcycle.bin");
-            if (BrandModelMotorcycle == null)
+            brandModelMotorcycle = fileBrands.ReadingFromFile("brandModelMotorcycle.bin");
+            if (brandModelMotorcycle == null)
             {
                 MessageBox.Show("Не вдалося прочитати файл");
                 return;
             }
 
-            BrandModelScooter = FileBrands.ReadingFromFile("BrandModelScooter.bin");
-            if (BrandModelScooter == null)
+            brandModelScooter = fileBrands.ReadingFromFile("brandModelScooter.bin");
+            if (brandModelScooter == null)
             {
                 MessageBox.Show("Не вдалося прочитати файл");
                 return;
             }
 
-            mototransports = FileMoto.ReadingFromFile("MotoTransport.bin");
+            mototransports = fileMoto.ReadingFromFile("MotoTransport.bin");
             if (mototransports == null)
             {
                 MessageBox.Show("Не вдалося прочитати файл");
@@ -95,14 +95,14 @@ namespace Motosalon
             ModelComboBox.Items.Clear();
             if (TypeComboBox.Text == "Мотоцикл")
             {
-                foreach (var brand in BrandModelMotorcycle)
+                foreach (var brand in brandModelMotorcycle)
                 {
                     BrandComboBox.Items.Add(brand.Key);
                 }
             }
             else
             {
-                foreach (var brand in BrandModelScooter)
+                foreach (var brand in brandModelScooter)
                 {
                     BrandComboBox.Items.Add(brand.Key);
                 }
@@ -115,7 +115,7 @@ namespace Motosalon
             ModelComboBox.Items.Clear();
             if (TypeComboBox.Text == "Мотоцикл")
             {
-                foreach (var brand in BrandModelMotorcycle)
+                foreach (var brand in brandModelMotorcycle)
                 {
                     if (BrandComboBox.Text == brand.Key)
                     {
@@ -129,7 +129,7 @@ namespace Motosalon
             }
             else
             {
-                foreach (var brand in BrandModelScooter)
+                foreach (var brand in brandModelScooter)
                 {
                     if (BrandComboBox.Text == brand.Key)
                     {
