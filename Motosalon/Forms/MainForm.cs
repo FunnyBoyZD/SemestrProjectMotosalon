@@ -1,13 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Motosalon
@@ -21,6 +14,7 @@ namespace Motosalon
         private Dictionary<string, List<string>> BrandModelScooter;
         private List<Mototransport> mototransports;
         private List<Mototransport> filtredMoto = new List<Mototransport>();
+
         public MainForm()
         {
             InitializeComponent();
@@ -34,18 +28,21 @@ namespace Motosalon
             ClientListButton.Visible = false;
             panel2.BackColor = Color.LightBlue;
             panel2.Visible = false;
+
             BrandModelMotorcycle = FileBrands.ReadingFromFile("BrandModelMotorcycle.bin");
             if (BrandModelMotorcycle == null)
             {
                 MessageBox.Show("Не вдалося прочитати файл");
                 return;
             }
+
             BrandModelScooter = FileBrands.ReadingFromFile("BrandModelScooter.bin");
             if (BrandModelScooter == null)
             {
                 MessageBox.Show("Не вдалося прочитати файл");
                 return;
             }
+
             mototransports = FileMoto.ReadingFromFile("MotoTransport.bin");
             if (mototransports == null)
             {
@@ -59,7 +56,6 @@ namespace Motosalon
             }
 
             AddMotoToListView(filtredMoto, ChangeBackGroundColor, ChangeForeColor);
-
         }
 
         private void AddMotoToListView(List<Mototransport> mototransports, ChangeStyle changeStyleMotoLines, ChangeStyle changeStyleScooterLines)
@@ -80,15 +76,16 @@ namespace Motosalon
                 MotoListView.Items.Add(item);
             }
         }
+
         private void ChangeBackGroundColor(ListViewItem item, Color color)
         {
             item.SubItems[0].BackColor = color;
         }
+
         private void ChangeForeColor(ListViewItem item, Color color)
         {
             item.SubItems[0].ForeColor = color;
         }
-
 
         private void TypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -331,7 +328,6 @@ namespace Motosalon
             PriceFromBox.Text = "";
             PriceToBox.Text = "";
         }
-
 
         private void AdminButton_Click_1(object sender, EventArgs e)
         {
