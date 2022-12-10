@@ -1,5 +1,4 @@
-﻿
-namespace Motosalon
+﻿namespace Motosalon
 {
     partial class AdminMotoListForm
     {
@@ -290,7 +289,6 @@ namespace Motosalon
             this.AmountMotoLabel.Size = new System.Drawing.Size(222, 20);
             this.AmountMotoLabel.TabIndex = 19;
             this.AmountMotoLabel.Text = "Всього мототранспорту: ";
-            this.AmountMotoLabel.Click += new System.EventHandler(this.AmountMotoLabel_Click);
             // 
             // SumLabel
             // 

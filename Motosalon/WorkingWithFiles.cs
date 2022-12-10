@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
+﻿using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Motosalon
 {
@@ -28,12 +23,12 @@ namespace Motosalon
             }
 
             BinaryFormatter formatter = new BinaryFormatter();
-            T massiv;
+            T array;
             try
             {
                 using (FileStream fs = new FileStream(FilePath, FileMode.OpenOrCreate))
                 {
-                    massiv = (T)formatter.Deserialize(fs);
+                    array = (T)formatter.Deserialize(fs);
                 }
             }
             catch
@@ -41,9 +36,10 @@ namespace Motosalon
                 return default(T);
             }
            
-            return massiv;
+            return array;
         }
-        public void WritingToFile(T massiv, string FilePath)
+
+        public void WritingToFile(T array, string FilePath)
         {
             if (FilePath == "")
             {
@@ -55,8 +51,7 @@ namespace Motosalon
                 BinaryFormatter formatter = new BinaryFormatter();
                 using (FileStream fs = new FileStream(FilePath, FileMode.OpenOrCreate))
                 {
-                    formatter.Serialize(fs, massiv);
-                   
+                    formatter.Serialize(fs, array);
                 }
             }
             catch

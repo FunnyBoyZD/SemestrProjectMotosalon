@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Motosalon
 {
@@ -50,6 +46,7 @@ namespace Motosalon
                 }
             }
         }
+
         public Mototransport(string Brand, string Model, int Price, int Volume)
         {
             this.Brand = Brand;
@@ -62,6 +59,7 @@ namespace Motosalon
         {
             return Price.CompareTo(other.Price);
         }      
+
         public bool Filter(Mototransport mototransportFrom, Mototransport mototransportTo)
         {           
             if (mototransportFrom.GetType().Name != "Mototransport" && this.GetType() != mototransportFrom.GetType())

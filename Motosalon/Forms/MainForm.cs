@@ -167,12 +167,12 @@ namespace Motosalon
                 MessageBox.Show("Перевірте правильність вводу об'єму двигуна");
                 return;
             }
+
             if (VolumeFromBox.Text != "" && VolumeToBox.Text != "" && VolumeFrom > VolumeTo)
             {
                 MessageBox.Show("Перевірте правильність вводу об'єму двигуна");
                 return;
             }
-
 
             if (PriceFromBox.Text != "" && Int32.TryParse(PriceFromBox.Text, out PriceFrom) == false)
             {
@@ -185,6 +185,7 @@ namespace Motosalon
                 MessageBox.Show("Перевірте правильність вводу об'єму двигуна");
                 return;
             }
+
             if (PriceFromBox.Text != "" && PriceToBox.Text != "" && PriceFrom > PriceTo)
             {
                 MessageBox.Show("Перевірте правильність вводу об'єму двигуна");
@@ -198,16 +199,14 @@ namespace Motosalon
                     motorcycleFrom = new Motorcycle(BrandComboBox.Text, ModelComboBox.Text, PriceFrom, VolumeFrom, "");
                     motorcycleTo = new Motorcycle(BrandComboBox.Text, ModelComboBox.Text, PriceTo, VolumeTo, "");
                 }
-                catch (PriceException ex)
+                catch (PriceException exception)
                 {
-
-                    MessageBox.Show($"Помилка: {ex.Message}\tЗначення: {ex.Value}");
+                    MessageBox.Show($"Помилка: {exception.Message}\tЗначення: {exception.Value}");
                     return;
                 }
-                catch (VolumeException ex)
+                catch (VolumeException exception)
                 {
-
-                    MessageBox.Show($"Помилка: {ex.Message}\tЗначення: {ex.Value}");
+                    MessageBox.Show($"Помилка: {exception.Message}\tЗначення: {exception.Value}");
                     return;
                 }
                 FiltredMoto = FiltringList(motorcycleFrom, motorcycleTo);
@@ -221,13 +220,11 @@ namespace Motosalon
                 }
                 catch (PriceException ex)
                 {
-
                     MessageBox.Show($"Помилка: {ex.Message}\tЗначення: {ex.Value}");
                     return;
                 }
                 catch (VolumeException ex)
                 {
-
                     MessageBox.Show($"Помилка: {ex.Message}\tЗначення: {ex.Value}");
                     return;
                 }
@@ -242,13 +239,11 @@ namespace Motosalon
                 }
                 catch (PriceException ex)
                 {
-
                     MessageBox.Show($"Помилка: {ex.Message}\tЗначення: {ex.Value}");
                     return;
                 }
                 catch (VolumeException ex)
                 {
-
                     MessageBox.Show($"Помилка: {ex.Message}\tЗначення: {ex.Value}");
                     return;
                 }
@@ -256,7 +251,6 @@ namespace Motosalon
             }
             MotoListView.Items.Clear();
             AddMotoToListView(FiltredMoto, ChangeBackGroundColor, ChangeForeColor);
-
         }
 
         private List<Mototransport> FiltringList(Mototransport mototransportFrom, Mototransport mototransportTo)

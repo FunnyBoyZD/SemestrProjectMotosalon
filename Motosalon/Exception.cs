@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Motosalon
 {
@@ -14,6 +10,7 @@ namespace Motosalon
             this.Value = Value;
         }
     }
+
     class VolumeException : Exception
     {
         public int Value { get; }
@@ -22,6 +19,7 @@ namespace Motosalon
             this.Value = Value;
         }
     }
+
     class TypeMotorcycleException : Exception
     {
         public string Value { get; }
@@ -30,6 +28,7 @@ namespace Motosalon
             this.Value = Value;
         }
     }
+
     class PhoneException : Exception
     {
         public string Value { get; }
@@ -41,6 +40,7 @@ namespace Motosalon
             Value = value;
         }
     }
+
     class TypeScooterException : Exception
     {
         public string Value { get; }
@@ -49,6 +49,7 @@ namespace Motosalon
             this.Value = Value;
         }
     }
+
     class CommentException : Exception
     {
         public int Value { get; }

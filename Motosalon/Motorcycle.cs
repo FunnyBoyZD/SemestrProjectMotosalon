@@ -1,10 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Motosalon
 {
@@ -42,6 +37,7 @@ namespace Motosalon
                 }
             }
         }
+
         public Motorcycle(string Brand, string Model, int Price, int Volume, string TypeMotorcycle) : base(Brand, Model, Price, Volume)
         {
             this.TypeMotorcycle = TypeMotorcycle;

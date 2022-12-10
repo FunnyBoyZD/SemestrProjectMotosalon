@@ -80,7 +80,6 @@ namespace Motosalon
                 MessageBox.Show("Не вдалося зчитати файл");
                 return;
             }
-            /*Mototransports = FileMoto.ReadingFromFile("MotoTransport.bin");*/
             AddMotoToListView(mototransports, ChangeBackGroundColor, ChangeForeColor);
         }
 
@@ -168,13 +167,11 @@ namespace Motosalon
                 ModelLabel.Visible = true;
                 VolumeLabel.Visible = true;
                 PriceLabel.Visible = true;
-                //ExtraFieldLabel.Visible = false;
                 TypeComboBox.Visible = true;
                 BrandComboBox.Visible = true;
                 ModelComboBox.Visible = true;
                 VolumeTextBox.Visible = true;
                 PriceTextBox.Visible = true;
-                //ExtraComboBox.Visible = false;
                 AddButton.Visible = true;
             }
             else
@@ -295,13 +292,11 @@ namespace Motosalon
                 }
                 catch (PriceException ex)
                 {
-
                     MessageBox.Show($"Помилка: {ex.Message}\tЗначення: {ex.Value}");
                     return;
                 }
                 catch (VolumeException ex)
                 {
-
                     MessageBox.Show($"Помилка: {ex.Message}\tЗначення: {ex.Value}");
                     return;
                 }
@@ -320,13 +315,11 @@ namespace Motosalon
                 }
                 catch (PriceException ex)
                 {
-
                     MessageBox.Show($"Помилка: {ex.Message}\tЗначення: {ex.Value}");
                     return;
                 }
                 catch (VolumeException ex)
                 {
-
                     MessageBox.Show($"Помилка: {ex.Message}\tЗначення: {ex.Value}");
                     return;
                 }
@@ -342,11 +335,6 @@ namespace Motosalon
             AmountMotoShow();
             SumMotoShow();
             MessageBox.Show("Успішно додано", "Повідомлення", MessageBoxButtons.OK);
-        }
-
-        private void AmountMotoLabel_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

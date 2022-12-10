@@ -1,10 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Motosalon
 {
@@ -37,10 +32,11 @@ namespace Motosalon
                 }
                 else
                 {
-                    throw new TypeMotorcycleException("Неправильно введено тип мотоцикла", value);
+                    throw new TypeMotorcycleException("Неправильно введено тип скутера", value);
                 }
             }
         }
+
         public Scooter(string Brand, string Model, int Price, int Volume, string TypeScooter) : base(Brand, Model, Price, Volume)
         {
             this.TypeScooter = TypeScooter;
