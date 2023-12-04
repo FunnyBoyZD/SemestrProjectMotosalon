@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿using Motosalon.Data;
+using System;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Motosalon
@@ -13,11 +8,13 @@ namespace Motosalon
     public partial class ClientInfoEntryForm : Form
     {
         private Mototransport Mototransport;
+        private MotoContext Db;
 
-        public ClientInfoEntryForm(Mototransport mototransport)
+        public ClientInfoEntryForm(Mototransport mototransport,MotoContext db)
         {
             InitializeComponent();
             this.Mototransport = mototransport;
+            this.Db = db;
         }
 
         private void BuyButton_Click(object sender, EventArgs e)
@@ -47,7 +44,7 @@ namespace Motosalon
                 MessageBox.Show($"Помилка: {ex.Message}\tДовжина рядка: {ex.Value}");
                 return;
             }
-            SuccessfulOrderForm form = new SuccessfulOrderForm(client);
+            SuccessfulOrderForm form = new SuccessfulOrderForm(client,Db);
             this.Visible = false;
             this.Close();
             form.ShowDialog();

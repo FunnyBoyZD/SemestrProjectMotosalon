@@ -1,12 +1,15 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Motosalon
 {
     [Serializable]
-    public class Mototransport: IComparable<Mototransport>
+    public class Mototransport : IComparable<Mototransport>
     {
-        public string Brand { get; set; } 
+        public int Id {  get; set; }
+        public string Brand { get; set; }
         public string Model { get; set; }
+        public List<Client> Clients { get; set; }
         private int price;
         public int Price
         {
@@ -28,7 +31,7 @@ namespace Motosalon
         }
 
         private int volume;
-        public int Volume 
+        public int Volume
         {
             get
             {
@@ -47,6 +50,11 @@ namespace Motosalon
             }
         }
 
+        public Mototransport()
+        {
+            Brand = string.Empty;
+            Model = string.Empty;
+        }
         public Mototransport(string Brand, string Model, int Price, int Volume)
         {
             this.Brand = Brand;
@@ -58,10 +66,10 @@ namespace Motosalon
         public int CompareTo(Mototransport other)
         {
             return Price.CompareTo(other.Price);
-        }      
+        }
 
         public bool Filter(Mototransport mototransportFrom, Mototransport mototransportTo)
-        {           
+        {
             if (mototransportFrom.GetType().Name != "Mototransport" && this.GetType() != mototransportFrom.GetType())
             {
                 return false;

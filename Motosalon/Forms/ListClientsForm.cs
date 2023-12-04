@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Motosalon.Data;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Motosalon
@@ -19,7 +21,7 @@ namespace Motosalon
         private void ListClientsForm_Load(object sender, EventArgs e)
         {
             this.BackColor = Color.LightGray;
-            Clients = WorkingWithFiles.ReadingFromFile("Clients.bin");
+            Clients = DataService.GetClients();
             if (Clients == null)
             {
                 MessageBox.Show("Не вдалося зчитати файл");
@@ -84,16 +86,14 @@ namespace Motosalon
             if (ClientListView.SelectedItems.Count == 1)
             {
                 Mototransport mototransport = Clients[ClientListView.SelectedItems[0].Index].BoughtMoto;
-                if (mototransport.GetType().Name == "Motorcycle")
+                if (mototransport is Motorcycle motorcycle)
                 {
-                    Motorcycle motorcycle = mototransport as Motorcycle;
                     if (motorcycle == null)
                         return;
                     MessageBox.Show($"Тип: Мотоцикл\n\nБренд: {mototransport.Brand}\n\nМодель: {mototransport.Model}\n\nЦіна: {mototransport.Price}\n\nОб'єм двигуна: {mototransport.Volume}\n\nТип мотоцикла: {motorcycle.TypeMotorcycle}\n\n", "Мототранспорт", MessageBoxButtons.OK);
                 }
-                else
+                else if(mototransport is Scooter scooter)
                 {
-                    Scooter scooter = mototransport as Scooter;
                     if (scooter == null)
                         return;
                     MessageBox.Show($"Тип: Скутер\n\nБренд: {mototransport.Brand}\n\nМодель: {mototransport.Model}\n\nЦіна: {mototransport.Price}\n\nОб'єм двигуна: {mototransport.Volume}\n\nТип скутера: {scooter.TypeScooter}\n\n", "Мототранспорт", MessageBoxButtons.OK);
@@ -111,6 +111,7 @@ namespace Motosalon
             if (ClientListView.SelectedItems.Count == 1)
             {
                 Clients.Remove(Clients[ClientListView.SelectedItems[0].Index]);
+                DataService.RemoveClient(Clients[ClientListView.SelectedItems[0].Index]);
                 AddToListView(Clients, ChangeBackGroundColor);
                 WorkingWithFiles.WritingToFile(Clients, "Clients.bin");
             }

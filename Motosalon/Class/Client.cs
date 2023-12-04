@@ -1,13 +1,21 @@
 ﻿using System;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace Motosalon
 {
+    public delegate void OrderCreationHandler(Client client);
     [Serializable]
-    public class Client: IPrintable
+    public class Client
     {
+        public int Id { get; set; }
+        [MaxLength(20)]
+        [DefaultValue("NONAME")]
         public string Name { get; set; }
+        [MaxLength(20)]
         public string Surname { get; set; }
         private string phoneNumber;
+        [Required]
         public string PhoneNumber
         {
             get
@@ -63,8 +71,16 @@ namespace Motosalon
                 }
             }
         }
+        public int? BoughtMotoId { get; set; }
         public Mototransport BoughtMoto { get; set; }
-
+        public event OrderCreationHandler OnCall;
+        public Client()
+        {
+            Name = string.Empty;
+            Surname = string.Empty;
+            phoneNumber = string.Empty;
+            Comment = string.Empty;
+        }
         public Client(string Name, string Surname, string PhoneNumber, string Comment, Mototransport BoughtMoto)
         {
             this.Name = Name;
@@ -72,8 +88,8 @@ namespace Motosalon
             this.PhoneNumber = PhoneNumber;
             this.Comment = Comment;
             this.BoughtMoto = BoughtMoto;
+            OnCall?.Invoke(this);
         }
-
         public string Print()
         {
             return $"Ім'я: {Name}\n\nПрізвище: {Surname}\n\nНомер телефону: {PhoneNumber}";

@@ -1,6 +1,9 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using Motosalon.Data;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Motosalon
@@ -9,12 +12,14 @@ namespace Motosalon
     {
         private Client Client;
         private WorkingWithFiles<List<Client>> WorkingWithFiles;
+        private MotoContext Db;
 
-        public SuccessfulOrderForm(Client client)
+        public SuccessfulOrderForm(Client client,MotoContext db)
         {
             InitializeComponent();
             this.Client = client;
             WorkingWithFiles = new WorkingWithFiles<List<Client>>();
+            this.Db = db;
         }
 
         private void SuccessfulOrderForm_Load(object sender, EventArgs e)
@@ -29,13 +34,14 @@ namespace Motosalon
         {
             List<Client> clients = new List<Client>();
 
-            clients = WorkingWithFiles.ReadingFromFile("Clients.bin");
+            clients = Db.Clients.Include(c=>c.BoughtMoto).ToList();
             if (clients == null)
             {
                 MessageBox.Show("Не вдалося прочитати файл");
                 return;
             }
             clients.Add(Client);
+            Db.Clients.Add(Client);
             WorkingWithFiles.WritingToFile(clients, "Clients.bin");
             this.Close();
         }

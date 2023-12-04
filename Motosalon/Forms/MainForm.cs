@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Motosalon.Data;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Motosalon
@@ -43,7 +45,7 @@ namespace Motosalon
                 return;
             }
 
-            Mototransports = FileMoto.ReadingFromFile("MotoTransport.bin");
+            Mototransports = DataService.GetMototransport();
             if (Mototransports == null)
             {
                 MessageBox.Show("Не вдалося прочитати файл");
@@ -65,11 +67,11 @@ namespace Motosalon
             foreach (var mototransport in mototransports)
             {
                 item = new ListViewItem(new string[] { mototransport.GetType().Name == "Motorcycle" ? "Мотоцикл" : "Скутер", mototransport.Brand, mototransport.Model, mototransport.Price.ToString(), mototransport.Volume.ToString() });
-                if (mototransport.GetType().Name == "Motorcycle")
+                if (mototransport is Motorcycle)
                 {
                     changeStyleMotoLines(item, Color.LightGray);
                 }
-                else
+                else if(mototransport is Scooter)
                 {
                     changeStyleScooterLines(item, Color.Brown);
                 }
@@ -283,26 +285,30 @@ namespace Motosalon
             if (MotoListView.SelectedItems.Count == 1)
             {
                 DialogResult result = default(DialogResult);
-                mototransport = FiltredMoto[MotoListView.SelectedItems[0].Index];
-                //new confirmation form
-                if (mototransport.GetType().Name == "Motorcycle")
+                using (MotoContext db = new MotoContext())
                 {
-                    Motorcycle motorcycle = mototransport as Motorcycle;
-                    if (motorcycle == null)
-                        return;
-                    result = MessageBox.Show($"Тип: Мотоцикл\n\nБренд: {mototransport.Brand}\n\nМодель: {mototransport.Model}\n\nЦіна: {mototransport.Price}\n\nОб'єм двигуна: {mototransport.Volume}\n\nТип мотоцикла: {motorcycle.TypeMotorcycle}\n\n", "Підтвердження замовлення", MessageBoxButtons.OKCancel);
-                }
-                else
-                {
-                    Scooter scooter = mototransport as Scooter;
-                    if (scooter == null)
-                        return;
-                    result = MessageBox.Show($"Тип: Скутер\n\nБренд: {mototransport.Brand}\n\nМодель: {mototransport.Model}\n\nЦіна: {mototransport.Price}\n\nОб'єм двигуна: {mototransport.Volume}\n\nТип скутера: {scooter.TypeScooter}\n\n", "Підтвердження замовлення", MessageBoxButtons.OKCancel);
-                }
-                if (result == DialogResult.OK)
-                {
-                    ClientInfoEntryForm form = new ClientInfoEntryForm(mototransport);
-                    form.ShowDialog();
+                    mototransport = db.Mototransports.SingleOrDefault(m=>m.Id== FiltredMoto[MotoListView.SelectedItems[0].Index].Id);
+
+
+                    //new confirmation form
+                    if (mototransport is Motorcycle motorcycle)
+                    {
+                        if (motorcycle == null)
+                            return;
+                        result = MessageBox.Show($"Тип: Мотоцикл\n\nБренд: {mototransport.Brand}\n\nМодель: {mototransport.Model}\n\nЦіна: {mototransport.Price}\n\nОб'єм двигуна: {mototransport.Volume}\n\nТип мотоцикла: {motorcycle.TypeMotorcycle}\n\n", "Підтвердження замовлення", MessageBoxButtons.OKCancel);
+                    }
+                    else if (mototransport is Scooter scooter)
+                    {
+                        if (scooter == null)
+                            return;
+                        result = MessageBox.Show($"Тип: Скутер\n\nБренд: {mototransport.Brand}\n\nМодель: {mototransport.Model}\n\nЦіна: {mototransport.Price}\n\nОб'єм двигуна: {mototransport.Volume}\n\nТип скутера: {scooter.TypeScooter}\n\n", "Підтвердження замовлення", MessageBoxButtons.OKCancel);
+                    }
+                    if (result == DialogResult.OK)
+                    {
+                        ClientInfoEntryForm form = new ClientInfoEntryForm(mototransport,db);
+                        form.ShowDialog();
+                    }
+                    db.SaveChanges();
                 }
             }
         }

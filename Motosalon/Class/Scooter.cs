@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace Motosalon
 {
     [Serializable]
-    class Scooter : Mototransport
+    public class Scooter : Mototransport
     {
         private string typeScooter;
         public string TypeScooter

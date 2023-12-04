@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Motosalon.Data;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
@@ -117,16 +118,14 @@ namespace Motosalon
             if (MotoListView.SelectedItems.Count == 1)
             {
                 Mototransport mototransport = mototransports[MotoListView.SelectedItems[0].Index];
-                if (mototransport.GetType().Name == "Motorcycle")
+                if (mototransport is Motorcycle motorcycle)
                 {
-                    Motorcycle motorcycle = mototransport as Motorcycle;
                     if (motorcycle == null)
                         return;
                     MessageBox.Show($"Тип: Мотоцикл\n\nБренд: {mototransport.Brand}\n\nМодель: {mototransport.Model}\n\nЦіна: {mototransport.Price}\n\nОб'єм двигуна: {mototransport.Volume}\n\nТип мотоцикла: {motorcycle.TypeMotorcycle}\n\n", "Мототранспорт", MessageBoxButtons.OK);
                 }
-                else
+                else if(mototransport is Scooter scooter)
                 {
-                    Scooter scooter = mototransport as Scooter;
                     if (scooter == null)
                         return;
                     MessageBox.Show($"Тип: Скутер\n\nБренд: {mototransport.Brand}\n\nМодель: {mototransport.Model}\n\nЦіна: {mototransport.Price}\n\nОб'єм двигуна: {mototransport.Volume}\n\nТип скутера: {scooter.TypeScooter}\n\n", "Мототранспорт", MessageBoxButtons.OK);
@@ -143,6 +142,7 @@ namespace Motosalon
             if (MotoListView.SelectedItems.Count == 1)
             {
                 mototransports.Remove(mototransports[MotoListView.SelectedItems[0].Index]);
+                DataService.RemoveMototransport(mototransports[MotoListView.SelectedItems[0].Index]);
                 FileMoto.WritingToFile(mototransports, "MotoTransport.bin");
                 AddMotoToListView(mototransports, ChangeBackGroundColor, ChangeForeColor);
                 AmountMotoShow();
@@ -306,6 +306,7 @@ namespace Motosalon
                     return;
                 }
                 mototransports.Add(motorcycle);
+                DataService.AddMototransport(motorcycle);
             }
             else
             {
@@ -329,6 +330,7 @@ namespace Motosalon
                     return;
                 }
                 mototransports.Add(scooter);
+                DataService.AddMototransport(scooter);
             }
             AddMotoToListView(mototransports, ChangeBackGroundColor, ChangeForeColor);
             FileMoto.WritingToFile(mototransports, "MotoTransport.bin");

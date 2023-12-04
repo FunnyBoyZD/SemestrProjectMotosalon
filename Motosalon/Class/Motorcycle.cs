@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace Motosalon
 {
     [Serializable]
-    class Motorcycle : Mototransport
+    public class Motorcycle : Mototransport
     {
         private string typeMotorcycle;
         public string TypeMotorcycle
@@ -37,7 +37,6 @@ namespace Motosalon
                 }
             }
         }
-
         public Motorcycle(string Brand, string Model, int Price, int Volume, string TypeMotorcycle) : base(Brand, Model, Price, Volume)
         {
             this.TypeMotorcycle = TypeMotorcycle;
