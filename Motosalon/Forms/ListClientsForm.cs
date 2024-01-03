@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Motosalon
@@ -107,11 +109,39 @@ namespace Motosalon
 
         private void DeleteButton_Click(object sender, EventArgs e)
         {
-         
+
             if (ClientListView.SelectedItems.Count == 1)
             {
-                Clients.Remove(Clients[ClientListView.SelectedItems[0].Index]);
-                DataService.RemoveClient(Clients[ClientListView.SelectedItems[0].Index]);
+                // Classical variant with using 'Thread' for multithreading operations
+                Thread dbClientRemovalThread = new Thread(async () =>
+                {
+                    await DataService.RemoveClientAsync(Clients[ClientListView.SelectedItems[0].Index]);
+                });
+
+                Thread listClientRemovalThread = new Thread(() =>
+                {
+                    Clients.Remove(Clients[ClientListView.SelectedItems[0].Index]);
+                });
+
+                dbClientRemovalThread.Start();
+                listClientRemovalThread.Start();
+
+                dbClientRemovalThread.Join();
+                listClientRemovalThread.Join();
+
+                /*// Variant with using TPL(Task Parallel Library) and 'Task' class from it specifically for multithreading operations
+                Task dbClientRemovalTask = Task.Run(async () =>
+                {
+                    await DataService.RemoveClientAsync(Clients[ClientListView.SelectedItems[0].Index]);
+                });
+
+                Task listClientRemovalTask = Task.Run(() =>
+                {
+                    Clients.Remove(Clients[ClientListView.SelectedItems[0].Index]);
+                });
+
+                Task.WhenAll(dbClientRemovalTask, listClientRemovalTask).Wait();*/
+
                 AddToListView(Clients, ChangeBackGroundColor);
                 WorkingWithFiles.WritingToFile(Clients, "Clients.bin");
             }

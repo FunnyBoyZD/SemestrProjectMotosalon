@@ -2,34 +2,56 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Motosalon.Data
 {
     internal class DataService
     {
+        private static readonly SemaphoreSlim _semaphore = new SemaphoreSlim(1, 1);
+
         public static List<Client> GetClients()
         {
             using (MotoContext db = new MotoContext())
             {
-                return db.Clients.Include(c => c.BoughtMoto).ToList();
+                return db.Clients
+                    .Include(c => c.BoughtMoto)
+                    .ToList();
             }
         }
-        public static void AddClient(Client client)
+
+        public static async Task AddClientAsync(Client client)
         {
-            using (MotoContext db = new MotoContext())
+            await _semaphore.WaitAsync();
+            try
             {
-                db.Clients.Add(client);
-                db.SaveChanges();
+                using (MotoContext db = new MotoContext())
+                {
+                    db.Clients.Add(client);
+                    await db.SaveChangesAsync();
+                }
+            }
+            finally
+            {
+                _semaphore.Release();
             }
         }
-        public static void RemoveClient(Client client)
+
+        public static async Task RemoveClientAsync(Client client)
         {
-            using (MotoContext db = new MotoContext())
+            await _semaphore.WaitAsync();
+            try
             {
-                db.Clients.Remove(client);
-                db.SaveChanges();
+                using (MotoContext db = new MotoContext())
+                {
+                    db.Clients.Remove(client);
+                    await db.SaveChangesAsync();
+                }
+            }
+            finally
+            {
+                _semaphore.Release();
             }
         }
         public static List<Mototransport> GetMototransport()
