@@ -21,6 +21,15 @@ namespace Motosalon.Data
             }
         }
 
+        public static List<Client> GetClientsUsingRawSqlRequest()
+        {
+            using (MotoContext db = new MotoContext())
+            {
+                return db.Clients
+                    .FromSqlRaw("EXEC GetClients").ToList();
+            }
+        }
+
         public static async Task AddClientAsync(Client client)
         {
             await _semaphore.WaitAsync();
@@ -86,12 +95,20 @@ namespace Motosalon.Data
             }
         }
 
+        public static List<Mototransport> GetMototransportsWithPriceOver100000UsingRawSql()
+        {
+            using (MotoContext db = new MotoContext())
+            {
+                return db.Mototransports.FromSqlRaw("SELECT * FROM dbo.MototransportsAbove100000").ToList();
+            }
+        }
+
         public static List<Client> GetClientsWhoBoughtHondaOrYamaha()
         {
             using (MotoContext db = new MotoContext())
             {
-                return (List<Client>)db.Clients.Union(
-                    db.Clients.Where(c => c.BoughtMoto.Brand == "Yamaha").ToList());
+                return db.Clients.Union(
+                    db.Clients.Where(c => c.BoughtMoto.Brand == "Yamaha").ToList()).ToList();
             }
         }
 
@@ -154,3 +171,4 @@ namespace Motosalon.Data
         }
     }
 }
+    
